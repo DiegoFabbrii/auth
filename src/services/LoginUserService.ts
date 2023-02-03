@@ -1,12 +1,13 @@
+import { compare } from 'bcrypt';
 import { userRepository } from '../repositories/UserRepository';
 
 class LoginUserService {
   async execute(username: string, password: string) {
-    const validUser = await userRepository.findByUsername(username);
+    const user = await userRepository.findByUsername(username);
+    const userPassword = await compare(password, user?.password as string);
+    console.log(userPassword);
 
-    const validPassword = password === validUser?.password ? true : false;
-
-    if (!validPassword || !validUser) {
+    if (!userPassword || !user) {
       throw new Error('username or password is not valid');
       return;
     }
