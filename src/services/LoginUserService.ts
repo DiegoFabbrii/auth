@@ -1,5 +1,6 @@
 import { compare } from 'bcrypt';
 import { userRepository } from '../repositories/UserRepository';
+import { sign } from 'jsonwebtoken';
 
 class LoginUserService {
   async execute(username: string, password: string) {
@@ -11,6 +12,13 @@ class LoginUserService {
       throw new Error('username or password is not valid');
       return;
     }
+
+    const payload = user._id;
+    const token = sign({ payload }, `${process.env.PRIVATE_KEY}`, {
+      expiresIn: '1d',
+    });
+
+    return token;
   }
 }
 

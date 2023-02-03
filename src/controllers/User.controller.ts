@@ -17,11 +17,11 @@ class UserController {
   async login(req: Request, res: Response) {
     const { username, password } = req.body;
     try {
-      await loginUserService.execute(username, password);
-      return res.json({ msg: 'tá logado porra' });
+      const token = await loginUserService.execute(username, password);
+      return res.status(200).json({ token });
     } catch (error: unknown) {
       if (error instanceof Error)
-        res.status(500).json({ error: error.message });
+        res.status(404).json({ error: error.message });
     }
   }
 }
