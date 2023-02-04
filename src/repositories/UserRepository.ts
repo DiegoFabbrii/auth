@@ -8,6 +8,10 @@ class UserRepository {
   async findByUsername(username: string) {
     return await User.findOne({ username });
   }
+
+  async findById(id: string) {
+    return await User.findOne({ _id: id });
+  }
 }
 
 const userRepository = new UserRepository();
