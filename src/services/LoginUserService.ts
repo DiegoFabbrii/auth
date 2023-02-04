@@ -13,8 +13,7 @@ class LoginUserService {
       return;
     }
 
-    const payload = user._id;
-    const token = sign({ payload }, `${process.env.PRIVATE_KEY}`, {
+    const token = sign({ id: user._id }, `${process.env.PRIVATE_KEY}`, {
       expiresIn: '1d',
     });
 

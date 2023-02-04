@@ -24,6 +24,10 @@ class UserController {
         res.status(404).json({ error: error.message });
     }
   }
+
+  index(req: Request, res: Response) {
+    return res.json({ msg: 'logado' });
+  }
 }
 
 const userContoller = new UserController();
