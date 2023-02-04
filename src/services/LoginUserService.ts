@@ -17,7 +17,14 @@ class LoginUserService {
       expiresIn: '1d',
     });
 
-    return token;
+    const data = {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+      token,
+    };
+
+    return data;
   }
 }
 
