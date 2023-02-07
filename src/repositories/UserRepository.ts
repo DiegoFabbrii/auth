@@ -5,8 +5,8 @@ class UserRepository {
     return await User.create({ username, email, password });
   }
 
-  async findByUsername(username: string) {
-    return await User.findOne({ username });
+  async findByEmail(email: string) {
+    return await User.findOne({ email });
   }
 
   async findById(id: string) {

@@ -12,14 +12,14 @@ class UserController {
       return res.status(201).json({ message: 'user created successfully' });
     } catch (error: unknown) {
       if (error instanceof Error)
-        res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: error.message });
     }
   }
 
   async login(req: Request, res: Response) {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     try {
-      const userLogged = await loginUserService.execute(username, password);
+      const userLogged = await loginUserService.execute(email, password);
       return res.status(200).json(userLogged);
     } catch (error: unknown) {
       if (error instanceof Error)

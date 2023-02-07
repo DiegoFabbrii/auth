@@ -2,7 +2,7 @@ import { userRepository } from '../repositories/UserRepository';
 
 class CreateUserService {
   async execute(username: string, email: string, password: string) {
-    const existedUser = await userRepository.findByUsername(username);
+    const existedUser = await userRepository.findByEmail(email);
 
     if (existedUser) {
       throw new Error('username or email already exists');
