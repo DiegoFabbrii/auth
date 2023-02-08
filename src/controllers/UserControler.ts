@@ -9,7 +9,7 @@ class UserController {
     try {
       await createUserService.execute(username, email, password);
 
-      return res.status(201).json({ message: 'user created successfully' });
+      return res.status(201).json({ message: 'Usuário criado com sucesso' });
     } catch (error: unknown) {
       if (error instanceof Error)
         return res.status(500).json({ error: error.message });

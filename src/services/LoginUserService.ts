@@ -10,7 +10,7 @@ class LoginUserService {
     console.log('porra');
 
     if (!userPassword || !user) {
-      throw new Error('username or password is not valid');
+      throw new Error('Email ou senha incorretos');
     }
 
     const token = sign({ id: user._id }, `${process.env.PRIVATE_KEY}`, {
