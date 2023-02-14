@@ -5,11 +5,10 @@ import { sign } from 'jsonwebtoken';
 class LoginUserService {
   async execute(email: string, password: string) {
     const user = await userRepository.findByEmail(email);
-    const userPassword = await compare(password, user?.password as string);
 
-    console.log('porra');
+    const userPassword = user ? await compare(password, user?.password) : false;
 
-    if (!userPassword || !user) {
+    if (!user || !userPassword) {
       throw new Error('Email ou senha incorretos');
     }
 
