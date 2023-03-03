@@ -11,7 +11,7 @@ dotenv.config();
 const port = process.env.PORT || 3004;
 
 mongoose.set('strictQuery', false);
-mongoose.connect(`mongodb+srv://${process.env.DB_CONNECTION}`).then(() => {
+mongoose.connect(process.env.DB_CONNECTION as string).then(() => {
   app.use(express.json());
   app.use(cors());
   app.use(userRoute);
