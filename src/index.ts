@@ -8,7 +8,7 @@ import { userRoute } from './routes/userRoute';
 const app = express();
 dotenv.config();
 
-const port = 3004;
+const port = process.env.PORT || 3004;
 
 mongoose.set('strictQuery', false);
 mongoose.connect(`${process.env.DB_CONNECTION}`).then(() => {

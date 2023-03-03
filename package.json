@@ -6,7 +6,8 @@
   "author": "DiegoFabbrii <diegofabbri@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --files ./src/index.ts"
+    "dev": "tsnd --files ./src/index.ts",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
