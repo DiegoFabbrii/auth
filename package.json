@@ -5,6 +5,9 @@
   "repository": "git@github.com:DiegoFabbrii/auth.git",
   "author": "DiegoFabbrii <diegofabbri@outlook.com>",
   "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "tsnd --files ./src/index.ts",
     "build": "tsc"
