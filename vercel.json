@@ -7,8 +7,10 @@
     }
   ],
 
-  "routes": {
-    "src": "(.*)",
-    "dest": "src/index.ts"
-  }
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "src/index.ts"
+    }
+  ]
 }
